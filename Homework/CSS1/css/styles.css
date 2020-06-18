@@ -1,0 +1,15 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2 {
+	color: #f71495;
+}
+
+span.potager {
+	font-style: italic;
+}
+
+#planting {
+	color: grey;
+}
