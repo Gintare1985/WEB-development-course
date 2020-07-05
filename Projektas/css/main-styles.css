@@ -1,0 +1,74 @@
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Raleway', sans-serif;
+}
+
+
+div#whole-page-container {
+	border: 2px solid black;
+	margin: 10px;
+	max-width: 1500px;
+	padding: 15px;
+	background-color: #fce61c;
+}
+
+div#heading {
+	border: 2px solid blue;
+	margin-bottom: 10px;
+	text-align: center;
+	color: #10069e;
+	font-family: 'Raleway', sans-serif;
+	font-style: italic;
+	font-weight: bold;
+}
+
+div#navigation {
+	border: 2px solid green;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: space-between;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align: center;
+	color: #10069e;
+	font-size: 16px;
+}
+
+div#navigation > div {
+	padding: 10px;
+}
+
+div#main-content-wrapper {
+	border: 2px solid black;
+	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+div#footer {
+	border: 2px solid orange;
+	height: 70px;
+	margin-top: 15px;
+}
+
+#copyright {
+	text-align: left;
+}
+
+#facebook-logo {
+	width: 20%;
+	float: right;
+	max-width: 70px;
+	padding: 5px;
+}
+
+input:focus {
+  background-color: #8be6fc;
+}

@@ -3,43 +3,12 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Draft</title>
+		<title>Olgos masažai | Paslaugos ir Kainos</title>
+		<link href="css/main-styles.css" rel="stylesheet">
 		<style>
 
 
-			* {
-				box-sizing: border-box;
-			}
-
-			div#whole-page-container {
-				border: 2px solid black;
-				margin: 10px;
-				max-width: 1500px;
-				height: ;
-				padding: 15px;
-			}
-
-			div#heading {
-				border: 2px solid blue;
-				height: 100px;
-				margin-bottom: 20px;
-			}
-
-			div#navigation {
-				border: 2px solid green;
-				height: 50px;
-				margin-bottom: 20px;
-			}
-
-			div#main-content-wrapper {
-				border: 2px solid black;
-				padding: 15px;
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: center;
-				align-items: center;
-				align-content: center;
-			}
+			/* Custom styles */
 
 			.main-content {
 				border: 2px solid red;
@@ -48,28 +17,43 @@
 				justify-content: center;
 				align-items: center;
 				align-content: center;
-				flex-direction: column;
-				width: 80%;
+				flex-direction: row;
+				width: 100%;
 				padding: 15px;
 			 }
 
 			.main-content > div {
 				border: 2px solid blue;
-				height: 200px;
-				width: 100%;
+				max-width: 570px;
+				width: 90%;
 				margin-bottom: 20px;
+			}
 
+			img {
+				float: left;
+				width: 50%;
+			}
 
+			h3 {
+				text-align: center;
+				color: #10069e;
 			}
 
 
-			div#footer {
-				border: 2px solid orange;
-				height: 70px;
-				margin-top: 15px;
+			th {
+				height: 40px;
+				text-align: left;
+				color: #10069e;
 			}
 
+			th, td {
+				padding: 5px;
+				border-bottom: 1px solid #ddd;
+			}
 
+			tr:hover {
+				background-color: #f6ff8f;
+			}
 
 
 		</style>
@@ -78,20 +62,109 @@
 
 	<body>
 		<div id="whole-page-container">
-			<div id="heading"></div>
+			<div id="heading">
+				<h1><a href="index.html" target="_self">Olgos masažai</a></h1>
+				<h2>"Jūsų sveikata - mano tikslas!"</h2>
+			</div>
 
-			<div id="navigation"></div>
+			<div id="navigation">
 
-			<div id="main-content-wrapper">
-				<div class="main-content">
-					<div class="main-content first-section"></div>
-					<div class="main-content second-section"></div>
+				<div>
+					<a href="massages-and-prices.html" target="_self">Paslaugos</a>
+				</div>
+				<div>
+					<a href="#prices-list">Kainos</a>
+				</div>
+				<div>
+					<a href="registration-form.html" target="_self">Registracija</a>
+				</div>
+				<div>
+					<a href="contacts-about-me.html" target="_self">Kontaktai</a>
 				</div>
 
 			</div>
 
-			<div id="footer"></div>
+			<div id="main-content-wrapper">
+				<div class="main-content">
+					<div class="section-1">
 
+						<h3>Suaugusiųjų masažai</h3>
+						<img src="compr-images/adults-massage-2.jpg" alt="Suaugusiųjų masažas">
+						<p>Aprašymas, rūšys, specifika</p>
+
+					</div>
+					<div class="section-2">
+
+						<h3>Nėščiųjų masažai</h3>
+						<img src="compr-images/pregnant-massage-2.jpg" alt="Nėščiųjų masažas">
+						<p>Aprašymas, rūšys, specifika</p>
+
+					</div>
+					<div class="section-3">
+
+						<h3>Vaikų/kūdikių masažai</h3>
+						<img src="compr-images/children-massage-4.jpg" alt="Vaikų/kūdikių masažas">
+						<p>Aprašymas, rūšys, specifika</p>
+
+					</div>
+					<div class="section-4">
+						<div id="prices-list">
+							<h3>Kainos</h3>
+							<br>
+							<table>
+								<tr>
+									<th>Masažas</th>
+									<th>Trukmė</th>
+									<th>Kaina</th>
+								</tr>
+								<tr>
+									<td>Suaugusiųjų nugaros masažas</td>
+									<td>30 min</td>
+									<td>20 &euro;</td>
+								</tr>
+								<tr>
+									<td>Suaugusiųjų viso kūno masažas</td>
+									<td>60 min</td>
+									<td>35 &euro;</td>
+								</tr>
+								<tr>
+									<td>Nėščiųjų nugaros masažas</td>
+									<td>30 min</td>
+									<td>20 &euro;</td>
+								</tr>
+								<tr>
+									<td>Nėščiųjų nugaros masažas</td>
+									<td>30 min</td>
+									<td>20 &euro;</td>
+								</tr>
+								<tr>
+									<td>Vaikų/kūdikų masažas</td>
+									<td>20 min</td>
+									<td>10 &euro;</td>
+								</tr>
+								<tr>
+									<td>Vaikų/kūdikų masažas</td>
+									<td>40 min</td>
+									<td>20 &euro;</td>
+								</tr>
+
+							</table>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+			<div id="footer">
+				<span id="copyright">&copy; 2020</span>
+				<div id="facebook-logo">
+					<a href="https://www.facebook.com/Olgos.Masazai" target="_blank">
+						<img src="compr-images/facebook-logo.jpg" alt="Facebook logotipas">
+					</a>
+				</div>
+
+			</div>
 
 		</div>
 
