@@ -8,11 +8,15 @@ $db = $database->getConnection();
 
 $messageOne = new Message($db);
 
+//TODO:embed reCAPTCHA
+
 if (isset($_POST['submit'])) {
 	if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['message'])) {
 		$messageOne->name = trim($_POST['name']);
 		$messageOne->email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
 		$messageOne->message = htmlspecialchars(trim($_POST['message']));
+
+//TODO: Test code if someoene changes it in html.
 
 		if ($messageOne->createNewMessageItem()) {
 			echo "<script>alert('Dėkojame už Jūsų žinutę. Netrukus su Jumis susisieksime.')</script>";

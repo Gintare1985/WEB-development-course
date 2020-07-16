@@ -32,9 +32,14 @@ class Registration {
 					user_surname=:user_surname,
 					user_age=:user_age,
 					user_tel=:user_tel,
-					user_email=:user_email, massage_type=:massage_type, massage_time=:massage_time,
+					user_email=:user_email,
+					massage_type=:massage_type,
+					massage_time=:massage_time,
 					message=:message,
-					child_age=:child_age, pregnancy_weeks=:pregnancy_weeks, doctor_permission=:doctor_permission, created=:created";
+					child_age=:child_age,
+					pregnancy_weeks=:pregnancy_weeks,
+					doctor_permission=:doctor_permission,
+					created=:created";
 
 
 		$this->firstName = htmlspecialchars(strip_tags($this->firstName));

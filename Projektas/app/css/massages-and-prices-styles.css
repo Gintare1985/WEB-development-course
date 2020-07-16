@@ -1,5 +1,4 @@
 .main-content {
-	/*border: 2px solid red;*/
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -10,11 +9,9 @@
  }
 
 .main-content > div {
-	/*border: 2px solid blue;*/
 	max-width: 570px;
 	width: 90%;
-	margin-bottom: 10px;
-	padding: 10px;
+	margin-bottom: 30px;
 }
 
 img {

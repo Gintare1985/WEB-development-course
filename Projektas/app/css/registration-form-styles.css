@@ -1,9 +1,10 @@
 div#main-content-wrapper{
 	align-items: flex-start;
+	font-size: 16px;
 }
 
 fieldset {
-	min-width: 360px;
+	min-width: 300px;
 	padding: 10px;
 	border: 2px solid #06369e;
 }
@@ -21,12 +22,12 @@ td.reg-table {
 
 .additional-info input{
 	height: 30px;
-	min-width: 180px;
+	min-width: 150px;
 	margin-bottom: 3px;
 }
 
 input:focus, textarea:focus {
-background-color: #8be6fc;
+	background-color: #8be6fc;
 }
 
 textarea {
@@ -35,15 +36,15 @@ textarea {
 
 legend {
 	font-weight: bold;
+	font-size: 18px;
 }
 
 .massage-type-q1 {
 	height: 25px;
-	font-size: 15px;
+	font-size: 16px;
 }
 
 #submit-button {
-	font-size: 15px;
 	width: 60px;
 	font-weight: bold;
 	height: 35px;
@@ -54,16 +55,8 @@ legend {
 	background-color: #eb663d;
 }
 
-
 img {
 	float: left;
 	width: 50%;
 }
 
-/*.child-age-info {
-	display: none;
-}
-
-[class*="pregnancy-info-"] {
-	display: none;
-}*/

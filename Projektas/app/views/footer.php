@@ -6,6 +6,6 @@
 					</a>
 				</div>
 			</div>
-		</div>
+		</div>  <!-- end of <div id="whole-page-container"> -->
 	</body>
 </html>

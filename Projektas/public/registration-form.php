@@ -8,58 +8,58 @@
 
 	$registrationOne = new Registration($db);
 
+//TODO:embed reCAPTCHA
+
 	if (isset($_POST['submit'])) {
+		$registrationOne->firstName = trim($_POST['name']);
+		$registrationOne->lastName = trim($_POST['lname']);
 
-		print_r($_POST);
+		//TODO: age validation
+		$registrationOne->age = trim($_POST['age']);
+		$registrationOne->email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
+		$registrationOne->telephone = trim($_POST['phone']);
+		$registrationOne->massageType = trim($_POST['question1']);
 
-		if ($_POST['question1'] !== '0' && !empty($_POST['name']) && !empty($_POST['lname']) && !empty($_POST['phone'])) {
+		if (isset($_POST['registration_time'])) {
+		$registrationOne->massageTime = trim($_POST['registration_time']);
+		}
 
-			if (!preg_match("/^[\+0-9]*$/", ($_POST['phone']))) {
-				echo "<script>alert('Įveskite galiojantį telefono numerį.')</script>";
+		$registrationOne->message = trim($_POST['contraindications']);
+
+		//TODO: child age validation
+		$registrationOne->childAge = trim($_POST['child-age']);
+
+		//TODO: pregnancy weeks validation
+		$registrationOne->pregnancyWeeks = trim($_POST['pregnancy-weeks']);
+
+
+		if (isset($_POST['question2'])) {
+		$registrationOne->doctorPermission = trim($_POST['question2']);
+		}
+
+		//TODO: Correct validation below
+		/*if ($registrationOne->massageType == 'choose-type' || empty($registrationOne->firstName) || empty($registrationOne->lastName) || empty($registrationOne->telephone)) {
+
+		//TODO: Change scripts to div elements with notification near the field that should be corrected
+			echo "<script>alert('Norėdami užsiregistruoti masažui prašau užpildykite žvaigždute pažymėtus būtinus laukelius.')</script>";
+			header('Location: registration-form.php?form=empty');
+			exit();
+		} else {
+			if (!preg_match("/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/", $registrationOne->telephone)) {
+				echo "<script>alert('Įveskite galiojantį savo telefono numerį.')</script>";
 				header('Location: registration-form.php?phone=invalid');
 				exit();
-			} else {
-				$registrationOne->telephone = trim($_POST['phone']);
-			}
-
-			$registrationOne->firstName = trim($_POST['name']);
-			$registrationOne->lastName = trim($_POST['lname']);
-			$registrationOne->massageType = trim($_POST['question1']);
-
-			if (is_numeric($_POST['age'])) {
-				if ($_POST['age'] > 0) {
-					$registrationOne->age = trim($_POST['age']);
-				}
-			} else {
-				echo "<script>alert('Patikslinkite savo amžių.')</script>";
-				header('Location: registration-form.php?age=invalid');
-				exit();
-			}
-
-			$registrationOne->email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
-
-			if (isset($_POST['registration_time'])) {
-				$registrationOne->massageTime = trim($_POST['registration_time']);
-			}
-
-			$registrationOne->message = trim($_POST['contraindications']);
-			$registrationOne->childAge = trim($_POST['child-age']);
-			$registrationOne->pregnancyWeeks = trim($_POST['pregnancy-weeks']);
-
-
-			if (isset($_POST['question-2'])) {
-				$registrationOne->doctorPermission = trim($_POST['question-2']);
-			}
-
-			if ($registrationOne->createNewRegistrationItem()) {
-				echo "<script>alert('Dėkojame už pateiktą registracijos formą. Netrukus su Jumis susisieksime.')</script>";
-			} else {
-				echo "<script>alert('Deja, Jūsų registracijos forma nebuvo gauta. Prašome pabandyti dar kartą.')</script>";
-			}
-		} else {
-		echo "<script>alert('Norėdami užsiregistruoti masažui prašau užpildykite žvaigždute pažymėtus būtinus laukelius.')</script>";
+			} else {*/
+				if ($registrationOne->createNewRegistrationItem()) {
+					echo "<script>alert('Dėkojame už pateiktą registracijos formą. Netrukus su Jumis susisieksime.')</script>";
+					} else {
+						echo "<script>alert('Deja, Jūsų registracijos forma nebuvo gauta. Prašome pabandyti dar kartą.')</script>";
+						header('Location: registration-form.php?form=error');
+						exit();
+					}
 	}
-	}
+		//}
+	//}
 
 	$pageTitle = 'Registracija';
 	$customStylesLink = '<link href="../app/css/registration-form-styles.css" rel="stylesheet">';
@@ -125,9 +125,9 @@
 		<fieldset>
 			<legend>Klausimai:</legend>
 			<br>
-			<label class="massage-type-q1" for="question1">*Koks masažas Jus domina?</label>
+			<label class="massage-type-q1" for="question1" value="choose-type" >*Koks masažas Jus domina?</label>
 			<select class="massage-type-q1" name="question1" id="question1" required>
-				<option value="0" class="massage-type-q1">--Pasirinkite masažo rūšį--</option>
+				<option value="choose-type" class="massage-type-q1">--Pasirinkite masažo rūšį--</option>
 				<option value="adults-massage-1" class="massage-type-q1">Suaugusiųjų nugaros masažas</option>
 				<option value="adults-massage-2" class="massage-type-q1">Suaugusiųjų viso kūno masažas</option>
 				<option value="pregnant-massage-1" class="massage-type-q1">Nėščiųjų nugaros masažas</option>
@@ -173,6 +173,8 @@
 			<textarea id="contraindications" name="contraindications" cols="60" rows="6"></textarea>
 			<br>
 
+	<!--TODO: These questions to show only when the client chooses child/baby or pregnant massage type -->
+
 			<table class="additional-info">
 				<tr class="child-age-info">
 					<td class="child-age-info">
@@ -182,6 +184,7 @@
 						<input type="number" id="child-age" name="child-age">
 					</td>
 				</tr>
+
 				<tr class="pregnancy-info-1">
 					<td class="pregnancy-info-1">
 						<label for="pregnancy-weeks">Kelinta nėštumo savaitė? (Jei pasirinkote nėščiosios masažą.)</label>
@@ -203,6 +206,8 @@
 			<br>
 			<br>
 			<br>
+
+			<!--   -->
 			<input type="submit" name="submit" id="submit-button" value="Siųsti">
 		</fieldset>
 

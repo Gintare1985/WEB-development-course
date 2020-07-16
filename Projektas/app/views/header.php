@@ -17,6 +17,7 @@
 				<h2>"Jūsų sveikata - mano tikslas!"</h2>
 			</div>
 
+	<!-- TODO: burger meniu for very small resolution -->
 			<div id="navigation">
 				<div>
 					<a href="massages-and-prices.php" target="_self" class="navigation-items">Paslaugos</a>
